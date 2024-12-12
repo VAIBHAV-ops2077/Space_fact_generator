@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Facts Generator</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+            color: white;
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            color: #FFD700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        #factButton {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            color: #000;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            margin: 20px;
+        }
+
+        #factButton:hover {
+            transform: scale(1.05);
+        }
+
+        #factDisplay {
+            font-size: 20px;
+            padding: 20px;
+            margin: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌟 Amazing Space Facts 🌟</h1>
+        <button id="factButton">Generate Space Fact!</button>
+        <div id="factDisplay">Click the button to discover amazing space facts!</div>
+    </div>
+
+    <script>
+        const spaceFacts = [
+            "One day on Venus is longer than its year - it takes Venus 243 Earth days to rotate on its axis.",
+            "Saturn would float in a giant bathtub because its density is less than water.",
+            "The largest known star, UY Scuti, would take 1,700 years for a passenger airplane to fly around it.",
+            "There's a planet where it rains glass sideways at 7,000 kilometers per hour.",
+            "The footprints on the Moon will last for at least 100 million years.",
+            "The Sun loses about 4 million tons of mass every second.",
+            "Saturn has a giant hexagon-shaped storm on its north pole.",
+            "A teaspoon of neutron star material would weigh about 4 billion tons.",
+            "The Boomerang Nebula is the coldest known place in the universe at -272°C.",
+            "The largest known black hole, TON 618, has a mass of 66 billion Suns.",
+            "There's a planet made largely of diamond called 55 Cancri e.",
+            "Jupiter's Great Red Spot has been storming for at least 400 years.",
+            "Sunlight takes about 8 minutes and 20 seconds to reach Earth.",
+            "There are more stars than grains of sand on all Earth's beaches.",
+            "The Hubble Space Telescope can see up to 13.2 billion light years away.",
+            "Astronauts grow about 2 inches taller in space.",
+            "Jupiter's core is hotter than the surface of the Sun.",
+            "Planet WASP-12b is being eaten by its star.",
+            "The fastest known star moves at 8 million kilometers per hour.",
+            "The largest structure is the Hercules-Corona Borealis Great Wall, spanning 10 billion light-years."
+        ];
+
+        const factButton = document.getElementById('factButton');
+        const factDisplay = document.getElementById('factDisplay');
+
+        factButton.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * spaceFacts.length);
+            factDisplay.textContent = spaceFacts[randomIndex];
+            factDisplay.style.opacity = 0;
+            setTimeout(() => {
+                factDisplay.style.opacity = 1;
+            }, 100);
+        });
+    </script>
+</body>
+</html>
